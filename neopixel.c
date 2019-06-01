@@ -1,3 +1,12 @@
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <jonas@jonasotto.com> wrote this file.  As long as you retain this notice
+ * you can do whatever you want with this stuff. If we meet some day, and you
+ * think this stuff is worth it, you can buy me a beer in return.    Jonas Otto
+ * ----------------------------------------------------------------------------
+ */
+
 #include "neopixel.h"
 
 #define BITSPERLED (sizeof(Color) * 8)
@@ -35,4 +44,12 @@ void setLed(int i, Color color) {
 void show(SPI_HandleTypeDef *hspi) {
     buildSPIbuffer();
     HAL_SPI_Transmit_DMA(hspi, SPIbuffer, LED_COUNT * BITSPERLED);
+}
+
+Color hsvColor(float h, float s, float v) {
+    Color result;
+
+    fast_hsv2rgb_32bit(h * HSV_HUE_MAX, s * HSV_SAT_MAX, v * HSV_VAL_MAX, &result.R, &result.G, &result.B);
+
+    return result;
 }
