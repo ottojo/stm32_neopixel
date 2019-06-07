@@ -13,7 +13,7 @@
 #include <stm32l4xx_hal.h>
 #include "fast_hsv2rgb.h"
 
-#define LED_COUNT 64
+#define LED_COUNT 9
 
 #define SPI_NEO0 ((uint8_t) 0b11000000)
 #define SPI_NEO1 ((uint8_t) 0b11111000)
