@@ -16,7 +16,7 @@
 #define LED_COUNT 9
 
 #define SPI_NEO0 ((uint8_t) 0b11000000)
-#define SPI_NEO1 ((uint8_t) 0b11111000)
+#define SPI_NEO1 ((uint8_t) 0b11111100)
 
 typedef struct color {
     uint8_t G;
